@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script>
+        document.write("Saya belajar JavaScript");
+        nama = "Revina";
+        umur = 20;
+        document.write("<br>Halooo " + nama + ", ");
+        document.write("<hr>");
+
+        // fungsi tambah 2 bilangan
+        function tambah(a, b){
+            var jumlah = (a+b);
+            return jumlah;
+        }
+        var nilai_1=12;
+        var nilai_2=24;
+        var hasil = tambah(nilai_1, nilai_2)
+        document.write("jumlah"+nilai_1+"+", +nilai_2+" adalah "+hasil);
+
+        document.write("<hr>");
+        function validasi (){
+        if (document.myform.input.nama.text.value = ""){
+            alert("isi dulu nama");
+        } else {
+            alert("terimakasih sudah mengisi");
+        }
+    }
+    
+        
+    </script>
+</head>
+
+<body> 
+    <form name="myform" onsubmit="return validasi()"> 
+        Nama: <input type="text" name="inputNama"><br> 
+        Alamat: <input type="text" name="inputAlamat"><br> 
+        <input type="submit" value="simpan"> 
+    </form> 
+
+    <script> 
+        function validasi() { 
+            if (document.myform.inputNama.value == "") { 
+                alert("Nama belum diisi!"); 
+                return false; 
+            } 
+
+            if (document.myform.inputAlamat.value == "") { 
+                alert("Alamat belum diisi!"); 
+                return false; 
+            } 
+
+            alert("Data sudah disimpan!"); 
+            return false; 
+        } 
+    </script> 
+</body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Text with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <button id="tombolSH">Show/Hide Text</button>
+
+    <p id="kalimat" style="display: none;">
+        This is the text that will be shown or hidden.
+    </p>
+
+    <script>
+        $(document).ready(function(){
+
+            $("#tombolSH").click(function(){
+                $("#kalimat").toggle();
+            });
+
+            $("#btnHide").click(function(){
+                $("#kalimat").hide();
+            });
+
+            $("#btnShow").click(function(){
+                $("#kalimat").show();
+            });
+
+        });
+    </script>
+
+    <hr>
+
+    <button id="btnHide">Sembunyikan</button>
+    <button id="btnShow">Tampilkan</button>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial; background: #f4f1ea; padding: 20px; }
+        .judul { background: #34495e; color: white; padding: 15px; border-radius: 8px; }
+        .box { background: white; padding: 15px; margin-top: 15px; border-radius: 8px; }
+        .ket { color: #555; font-size: 14px; margin-top: 0; }
+        button { background: #16a085; color: white; border: none; padding: 7px 13px; border-radius: 5px; cursor: pointer; }
+        .btnHapus { background: #e74c3c; margin-left: 8px; padding: 3px 10px; }
+        #listTugas li { margin-bottom: 6px; }
+        #area { padding: 25px; background: #dfe6e9; text-align: center; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="judul">
+        <h2>Latihan Library jQuery</h2>
+        Nama: Revina Septianur P | NPM: 613250019
+    </div>
+
+    <div class="box">
+        <h3>1. append() dan remove()</h3>
+        <p class="ket">Fungsi append() dipakai untuk menambahkan elemen baru ke dalam elemen yang sudah ada, sedangkan remove() dipakai untuk menghapus elemen. Di sini dipakai untuk menambah tugas ke dalam daftar, dan klik tombol Hapus untuk menghapusnya.</p>
+        <input type="text" id="isiTugas" placeholder="Tulis tugas kuliah">
+        <button id="btnTugas">Tambah</button>
+        <ol id="listTugas"></ol>
+    </div>
+
+    <div class="box">
+        <h3>2. val() dan keyup()</h3>
+        <p class="ket">Fungsi val() dipakai untuk mengambil isi dari input, sedangkan keyup() berjalan setiap kali tombol keyboard dilepas. Di sini dipakai untuk menghitung jumlah karakter yang diketik.</p>
+        <input type="text" id="isiCatatan" placeholder="Ketik catatan singkat">
+        <p>Jumlah karakter: <b id="hitung">0</b></p>
+    </div>
+
+    <div class="box">
+        <h3>3. hover()</h3>
+        <p class="ket">Fungsi hover() menjalankan aksi saat kursor masuk dan keluar dari sebuah elemen. Di sini warna dan teks kotak berubah ketika kursor diarahkan ke atasnya.</p>
+        <div id="area">Arahkan kursor ke sini</div>
+    </div>
+
+    <div class="box">
+        <h3>4. attr()</h3>
+        <p class="ket">Fungsi attr() dipakai untuk mengambil atau mengubah atribut elemen HTML. Di sini dipakai untuk mengganti alamat tujuan (href) dari sebuah link.</p>
+        <a id="tautan" href="https://www.google.com">Buka Google</a><br><br>
+        <button id="btnUbah">Ubah Tautan</button>
+        <p id="hasilAttr"></p>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+
+            $("#btnTugas").click(function(){
+                var tugas = $("#isiTugas").val();
+                if (tugas != "") {
+                    $("#listTugas").append("<li>" + tugas + " <button class='btnHapus'>Hapus</button></li>");
+                    $("#isiTugas").val("");
+                }
+            });
+
+            $("#listTugas").on("click", ".btnHapus", function(){
+                $(this).parent().remove();
+            });
+
+            $("#isiCatatan").keyup(function(){
+                var panjang = $(this).val().length;
+                $("#hitung").text(panjang);
+            });
+
+            $("#area").hover(function(){
+                $(this).css("background", "#fdcb6e");
+                $(this).text("Kursor lagi di sini!");
+            }, function(){
+                $(this).css("background", "#dfe6e9");
+                $(this).text("Arahkan kursor ke sini");
+            });
+
+            $("#btnUbah").click(function(){
+                $("#tautan").attr("href", "https://ulbi.ac.id");
+                $("#tautan").text("Buka ULBI");
+                $("#hasilAttr").text("href sekarang: " + $("#tautan").attr("href"));
+            });
+
+        });
+    </script>
+
+</body>
+</html>
